@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "You Chromeplete Amazon",
+  "description":
+      "Adds a button to Amazon product page to search for product reviews on YouTube.",
+  "version": "1.0",
+
+  "permissions": [
+    "storage",
+    "http://www.amazon.com/"
+  ],
+
+  "web_accessible_resources": [
+    "youtube_icon.png"
+  ],
+
+  "content_scripts": [{
+    "matches": [
+      "http://www.amazon.com/gp/product/*",
+      "http://www.amazon.com/*/dp/*"
+    ],
+    "js": ["youtube_reviews.js"],
+    "run_at": "document_end"
+  }],
+
+  "options_page": "options.html"
+}
